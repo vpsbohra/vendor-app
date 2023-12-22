@@ -3,6 +3,14 @@ import React, { useEffect, useState } from 'react';
 
 import axios from 'axios';
 
+interface YourDataItemType {
+ 
+  id: number;
+  name: string;
+  text: string;
+
+}
+
 const COHERE_API_BASE_URL = 'https://api.cohere.ai';
 const COHERE_API_KEY = 'qx8l2aM3MhcEtWdV9En5hYDqQIs1Yj8IDo7L229X';
 
@@ -18,8 +26,8 @@ const cohereApi = axios.create({
 
 
 const ChatComponent = () => {
-  const [messages, setMessages] = useState([]);
-  const [inputMessage, setInputMessage] = useState('');
+  const [messages, setMessages] = useState<YourDataItemType[]>([]);
+  const [inputMessage, setInputMessage] = useState<string>('');
 
   const sendMessage = async () => {
     try {

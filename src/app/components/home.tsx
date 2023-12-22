@@ -37,7 +37,7 @@ const Index = () => {
           headers: { 
             'Content-Type': 'application/json', 
             'Accept': 'application/json', 
-            'Authorization': 'Bearer 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', 
+            'Authorization': 'Bearer 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', 
             'Cookie': '__cf_bm=47T7Kobkm.okhIzuc9i7Qil21SDiEbP.MN3QMSXLmDk-1703225645-1-Ac0EmUnF7BA8OXk9ZtcTZtSd/A9eXKGKBm68vfl8/QVY6hv2aGD8rUd7acML0pL7++D8JpDjDtbWuXtB/ew1QzQ=; _cfuvid=9zv_qkoPgZB6CSLuSNCuFII_O_hQBz28qZqPSod03F0-1703225907386-0-604800000'
           },
           data : data
