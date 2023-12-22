@@ -2,26 +2,210 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@font-face {
+    font-family: 'Arial';
+    src: url('/fonts/ArialMT.woff2') format('woff2'),
+        url('/fonts/ArialMT.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body{
+    margin: 0;
+    position: relative
 }
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+header {
+    background-color: #000000;
+}
+.container {
+    max-width: 1300px;
+    margin: auto;
+    padding: 0px 10px;
+}
+.main-hder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.main-hder ul {
+    display: flex;
+    align-items: center;
+}
+.main-hder .main-left li a {
+    color: #BDC1C6;
+    text-decoration: inherit;
+    font-family: 'Arial';
+    font-size: 14px;
+    margin-right: 20px;
+}
+.main-hder .main-right ul li:first-child a {
+    text-decoration: inherit;
+    color: #fff;
+    font-family: 'Arial';
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.32px;
+    height: 30px;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0px 10px;
+    border-radius: 7px;
+    background: rgb(0,153,255);
+    background: linear-gradient(267deg, rgba(0,153,255,1) 39%, rgba(255,255,255,1) 147%);
+}
+.main-bnr-img img {
+    width: 100%;
+}
+.bnr-sec {
+    position: relative;
+    line-height: 0
+}
+.bnr-cnt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    text-align: center;
+}
+.bnr-cnt form input {
+    background-color: #F1F3F4;
+    border:5px solid rgba(0, 48, 92, 0.5);
+    height: 65px;
+    width: 100%;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    padding-left: 30px;
+}
+.bnr-cnt form {
+    margin: 30px auto 30px 0;
+    position: relative;
+    width: 94%;
+}
+.bnr-cnt form button {
+    text-decoration: inherit;
+    color: #fff;
+    font-family: 'Arial';
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.32px;
+    height: 41px;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0px 20px;
+    border-radius: 7px;
+    background: rgb(0,153,255);
+    background: linear-gradient(267deg, rgba(0,153,255,1) 39%, rgba(255,255,255,1) 147%);
+    border: 0;
+    position: absolute;
+    right: -20px;
+    top: 19px;
+    cursor: pointer
+}
+.bnr-cnt img {
+    width: 100%;
+}
+.bnr-cnt ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.bnr-cnt ul li a {
+    color: #F1F3F4;
+    text-decoration: inherit;
+    font-family: 'Arial';
+    font-size: 14px;
+    border: 1px solid rgb(255 255 255 / 30%);
+    padding: 10px 12px;
+    border-radius: 10px;
+}
+footer {
+    background-color: #060010;
+}
+footer .ftr-div ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer .ftr-div ul li a {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: inherit;
+    letter-spacing: 0.16px;
+    margin: 0px 15px 11px;
+    opacity: 0.6;
+    display: block;
+}
+.main-hder .main-right ul li:first-child a:hover, .bnr-cnt form button:hover {
+    background: linear-gradient(267deg, rgb(252 254 255) 39%, rgb(0 153 255) 147%);
+    color: #09f;
+}
+.bnt-img-tab{
+    display: none
+}
+.Popup {
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    background-color: #000;
+    height: 260px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px !important;
+    text-align: center;
+    padding: 60px 0px;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+    .Popup h4 {font-family: 'Arial';color: #fff;font-size: 19px;font-weight: 700;margin-bottom: 0px;}
+    .Popup h6 {color: #9E9E9E;font-size: 14px;font-family: 'Arial';font-weight: 400;margin-top: 20px;}
+    .Popup a {height: 45px;width: 90%;display: block;color: #fff;text-decoration: inherit;font-family: 'Inter', sans-serif;font-size: 16px;line-height: 45px;margin: 0px auto 10px;border-radius: 7px;background: rgb(0,153,255);background: linear-gradient(267deg, rgba(0,153,255,1) 39%, rgba(255,255,255,1) 147%);font-weight: 400;}
+    .Popup a:last-child {border: 1px solid #fff;background: transparent;}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+
+
+    @media screen and (max-width:1199px){
+      .main-bnr-img img.bnr-img-desktop { display: none;}  
+       .main-bnr-img img.bnt-img-tab {display: block;} 
+        
+        
+    }
+    
+    @media screen and (max-width:767px){
+        
+        
+    }
+    @media screen and (max-width:567px){
+     .bnr-cnt {max-width: 90%;padding: 0px 0px;top: 14%;}
+        .bnr-cnt img {width: 50%;margin: 0;text-align: left;display: block;}
+        .bnr-cnt form input {height: 47px;width: 100%;border-radius: 14px;font-size: 12px;padding-left: 10px;}   
+        .bnr-cnt form button{font-size: 12px; top: 12px;    height: 35px;    right: -10px;}   
+        .bnr-cnt ul li a {color: #F1F3F4;font-size: 10px;padding: 8px 13px;border-radius: 5px;}   
+        .bnr-cnt form {width: 96%;}   
+        footer .ftr-div ul li a {font-size: 14px;margin: 0px 9px 11px;}
+        body{position: relative}
+        .Popup {position: absolute;bottom: 0;max-width: 100%;background-color: #000;height: 260px;border-top-left-radius: 40px;border-top-right-radius: 40px !important;text-align: center;padding: 60px 0px;width: 100%;}
+        .Popup h4 {font-family: 'Arial';color: #fff;font-size: 19px;font-weight: 700;margin-bottom: 0px;}
+        .Popup h6 {color: #9E9E9E;font-size: 14px;font-family: 'Arial';font-weight: 400;margin-top: 20px;}
+        .Popup a {height: 45px;width: 90%;display: block;color: #fff;text-decoration: inherit;font-family: 'Inter', sans-serif;font-size: 16px;line-height: 45px;margin: 0px auto 10px;border-radius: 7px;background: rgb(0,153,255);background: linear-gradient(267deg, rgba(0,153,255,1) 39%, rgba(255,255,255,1) 147%);font-weight: 400;}
+        .Popup a:last-child {border: 1px solid #fff;background: transparent;}
+        
+        
+        
+    }
+    @media screen and (max-width:480px){
+       .bnr-cnt ul li a {color: #F1F3F4;font-size: 9px;padding: 5px 5px;border-radius: 5px;} 
+        footer .ftr-div ul li a {font-size: 10px;margin: 0px 4px 11px;}
+        
+        
+    }
