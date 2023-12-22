@@ -5,52 +5,55 @@ import { useRouter } from 'next/navigation'
 
 const Index = () => {
     const [input, setInput] = useState('');
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState('');
     const router = useRouter()
     const [responseMessage, setResponseMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const handleChat = async (e) => {  
+     
         e.preventDefault();
-        const responseMessage = 'This is the response from the API';
-       
-        
-      try {
-        setResponseMessage('This is the response from the API');
-        // router.push(
-        //     '/chat',
-           
-        //    );
-        const apiKey = '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';
-        const apiUrl = 'https://api.openai.com/v1/chat/completions';
-    
-        const response = await axios.post(
-          apiUrl,
-          {
-            messages: [
-              { role: 'system', content: 'You are a helpful assistant.' },
-              { role: 'user', content: input },
-            ],
-            model: 'gpt-3.5-turbo',
-            max_tokens: 300,
-          },
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${apiKey}`,
+        const axios = require('axios');
+        let data = JSON.stringify({
+          "model": "gpt-3.5-turbo",
+          "messages": [
+            {
+              "role": "user",
+              content: input
             },
-          }
-        );
-       
-        setMessages([...messages, { role: 'assistant', content: response.data.choices[0].message.content }]);
-      } catch (error) { 
-          console.log('Error sending message to ChatGPT API:' ,error.response.data.error.message);
-          setErrorMessage(error.response?.data?.error?.message || 'An unexpected error occurred.');
-      }
-    
-      // setInput('');
-      // router.push('/chat');
+          ],
+          "temperature": 1,
+          "top_p": 1,
+          "n": 1,
+          "stream": false,
+          "max_tokens": 250,
+          "presence_penalty": 0,
+          "frequency_penalty": 0
+        });
+        
+        let config = {
+          method: 'post',
+          maxBodyLength: Infinity,
+          url: 'https://api.openai.com/v1/chat/completions',
+          headers: { 
+            'Content-Type': 'application/json', 
+            'Accept': 'application/json', 
+            'Authorization': 'Bearer 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', 
+            'Cookie': '__cf_bm=47T7Kobkm.okhIzuc9i7Qil21SDiEbP.MN3QMSXLmDk-1703225645-1-Ac0EmUnF7BA8OXk9ZtcTZtSd/A9eXKGKBm68vfl8/QVY6hv2aGD8rUd7acML0pL7++D8JpDjDtbWuXtB/ew1QzQ=; _cfuvid=9zv_qkoPgZB6CSLuSNCuFII_O_hQBz28qZqPSod03F0-1703225907386-0-604800000'
+          },
+          data : data
+        };
+        
+        axios.request(config)
+        .then((response) => {
+          console.log(JSON.stringify(response.data));
+          setMessages(response.data)
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       
     };
+  
     
    
   return (
@@ -87,7 +90,7 @@ const Index = () => {
         </div>
       </div>
     </header>
-   {errorMessage}
+    {JSON.stringify(messages)}
     <div className="bnr-sec">
       <div className="main-bnr-img">
         <img src="images/Header.png" className="bnr-img-desktop" />
