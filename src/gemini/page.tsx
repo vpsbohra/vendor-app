@@ -6,4 +6,4 @@ const Gemini = () => {
   )
 }
 
-export default Gemini
+export default Gemini  
